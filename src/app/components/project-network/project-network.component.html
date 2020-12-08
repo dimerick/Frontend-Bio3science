@@ -1,0 +1,13 @@
+<div *ngIf="lat != 200 && lon != 200">
+    <app-map
+    [lat]="lat" 
+    [lon]="lon" 
+    [markerActive]="false" 
+    [zoom]="10" 
+    [height]="400" 
+    [layers]="layers" 
+    (markerMovedEvent)="markerMoved($event)" 
+    ></app-map>
+</div>
+
+<!-- <p>Project Network</p> -->
