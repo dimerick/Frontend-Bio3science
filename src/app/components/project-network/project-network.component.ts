@@ -87,8 +87,28 @@ export class ProjectNetworkComponent implements OnInit {
 
           this.layers.push(poly);
 
+          let columns_images = `<div class="column">`;
+          console.log(e.images.length);
+          e.images.slice(0, Math.round(e.images.length / 2)).forEach(img => {
+            columns_images += `<img src="${img.url}">`;
+
+          });
+          columns_images += `</div><div class="column">`;
+          e.images.slice(Math.round(e.images.length / 2), e.images.length).forEach(img => {
+            columns_images += `<img src="${img.url}">`;
+
+          });
+          columns_images += `</div>`;
+
+          console.log(columns_images);
+
+          e.columns_images = columns_images;
+
           poly.addEventListener('click', (layer) => {
             console.log(e);
+
+
+
             this.mapComponent.showInfoLayer(`
             <div class="row">
                                   <div class="col-md-12">
@@ -101,8 +121,13 @@ export class ProjectNetworkComponent implements OnInit {
                                           Project
                                           </p>
                                           <p>
-                                          ${e.description}
+                                          ${e.description.replace(/\n/g, "<br />")}
                                           </p>
+
+                                          <div class="grid-image"> 
+                                          ${e.columns_images}
+                                          </div>
+
                                       </div>
                                       <!--end feature-->
                                   </div>                               
@@ -134,7 +159,7 @@ export class ProjectNetworkComponent implements OnInit {
                                           Project
                                           </p>
                                           <p>
-                                          ${e.description}
+                                          ${e.description.replace(/\n/g, "<br />")}
                                           </p>
                                       </div>
                                       <!--end feature-->
