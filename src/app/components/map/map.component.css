@@ -24,6 +24,9 @@
   width: 300px;
   padding: 10px;
   display: block;
+  max-height: 300px;
+overflow-y: scroll;
+overflow-x: hidden;
 }
 .show-info-layer{
   height: 100%!important;

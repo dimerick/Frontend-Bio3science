@@ -65,9 +65,11 @@ export class MapComponent implements OnInit, OnDestroy {
       
       DomEvent.addListener(container, 'click', DomEvent.stopPropagation)
       .addListener(container, 'click', DomEvent.preventDefault)
-      .addListener(container, 'dblclick', ()=>{
+      .addListener(container, 'dblclick onmouseup', ()=>{
         console.log(this);
-      })
+      });
+
+      DomEvent.disableClickPropagation(container);
 
       return container;
     },

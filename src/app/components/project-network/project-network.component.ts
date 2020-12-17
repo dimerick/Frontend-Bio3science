@@ -91,6 +91,7 @@ export class ProjectNetworkComponent implements OnInit {
           console.log(e.images.length);
           e.images.slice(0, Math.round(e.images.length / 2)).forEach(img => {
             columns_images += `<img src="${img.url}">`;
+            
 
           });
           columns_images += `</div><div class="column">`;
@@ -112,19 +113,19 @@ export class ProjectNetworkComponent implements OnInit {
             this.mapComponent.showInfoLayer(`
             <div class="row">
                                   <div class="col-md-12">
-                                      <div class="feature">
+                                      <div>
                                       
-                                      <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                      <i class="fa fa-map-marker fa-2x" aria-hidden="true" title="Project"></i>
                                       
                                           <h5>${e.name}</h5>
-                                          <p>
-                                          Project
-                                          </p>
+                                                                                   
+                                          
                                           <p>
                                           ${e.description.replace(/\n/g, "<br />")}
                                           </p>
 
                                           <div class="grid-image"> 
+                                          
                                           ${e.columns_images}
                                           </div>
 
@@ -152,12 +153,10 @@ export class ProjectNetworkComponent implements OnInit {
             this.mapComponent.showInfoLayer(`
             <div class="row">
                                   <div class="col-md-12">
-                                      <div class="feature">
-                                      <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                      <div class="">
+                                      <i class="fa fa-map-marker fa-2x" aria-hidden="true" title="Project"></i>
                                           <h5>${e.name}</h5>
-                                          <p>
-                                          Project
-                                          </p>
+                                          
                                           <p>
                                           ${e.description.replace(/\n/g, "<br />")}
                                           </p>
@@ -210,12 +209,10 @@ export class ProjectNetworkComponent implements OnInit {
               this.mapComponent.showInfoLayer(`
               <div class="row">
                                     <div class="col-md-12">
-                                        <div class="feature feature-6">
-                                        <i class="fa fa-university fa-2x" aria-hidden="true"></i>
+                                        <div class="">
+                                        <i class="fa fa-university fa-2x" aria-hidden="true" title="University"></i>
                                             <h5>${e.name}</h5>
-                                            <p>
-                                            University
-                                            </p>
+                                            
                                         </div>
                                         <!--end feature-->
                                     </div>                               
@@ -247,13 +244,11 @@ export class ProjectNetworkComponent implements OnInit {
               this.mapComponent.showInfoLayer(`
               <div class="row">
                                     <div class="col-md-12">
-                                        <div class="feature feature-6">
+                                        <div class="">
                                         
-                                        <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+                                        <i class="fa fa-users fa-2x" aria-hidden="true" title="Community"></i>
                                             <h5>${e.name}</h5>
-                                            <p>
-                                            Community
-                                            </p>
+                                            
                                         </div>
                                         <!--end feature-->
                                     </div>                               
