@@ -37,6 +37,8 @@ import { CommunityComponent } from './components/community/community.component';
 import { LoadFilesComponent } from './components/load-files/load-files.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { MyPublicationsComponent } from './components/my-publications/my-publications.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 
 
 
@@ -57,7 +59,7 @@ import { MyPublicationsComponent } from './components/my-publications/my-publica
     UniversityComponent,
     ProjectComponent,
     CommunityComponent, 
-    LoadFilesComponent, ProjectListComponent, MyPublicationsComponent
+    LoadFilesComponent, ProjectListComponent, MyPublicationsComponent, GalleryComponent, ProjectDetailComponent
   ],
   imports: [
     BrowserModule,

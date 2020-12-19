@@ -68,13 +68,14 @@
 
                     <div class="col-12">
 
-                        <ng-select class="custom" id="project-select" [items]="projects" bindLabel="name" bindValue="id"
-                            formControlName="project" placeholder="Ingrese el nombre del proyecto" [addTag]="addProject"
-                            (change)="onChangeProject($event)"></ng-select>
+                        <ng-select class="custom" id="project-select" [items]="projects" bindLabel="name_uni" bindValue="id"
+                            formControlName="project" placeholder="Ingrese o suscribase a un proyecto existente" (change)="onChangeProject($event)" (search)="typingSearchProject($event)" (close)="closeProject()"></ng-select>
                         <p *ngIf="projectForm.get('project').invalid && projectForm.get('project').touched"
                             class="color--error">Debes
                             ingresar el nombre del proyecto</p>
                     </div>
+
+                    <!-- [addTag]="addProject" -->
 
                     <div class="col-md-12">
                         <textarea placeholder="Ingrese la descripción del proyecto" class="validate-required" rows="4"

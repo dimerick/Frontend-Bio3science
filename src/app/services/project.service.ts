@@ -80,6 +80,30 @@ export class ProjectService{
         );
     }
 
+    getProjectsExpanded():Observable<Project[]>{
+        return this._http.get(
+            `${this.url}project-expanded`
+        ).pipe(
+            map( (resp:Project[]) => {
+                return resp;
+            }
+            )
+            
+        );
+    }
+
+    getProjectsExpandedById(idProject: number):Observable<Project>{
+        return this._http.get(
+            `${this.url}project-expanded/${idProject}`
+        ).pipe(
+            map( (resp:Project) => {
+                return resp;
+            }
+            )
+            
+        );
+    }
+
     getProjectByName(inputSearch: string){
         return this._http.get(
             `${this.url}project?name=${inputSearch}`

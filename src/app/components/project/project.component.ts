@@ -48,6 +48,8 @@ export class ProjectComponent implements OnInit {
   private loadFilesComponent: LoadFilesComponent;
   public loadImagesActive = true;
   public mainUniversitySelected = false;
+  public inputProjectSearch = "";
+  
   
 
   constructor(
@@ -104,7 +106,7 @@ export class ProjectComponent implements OnInit {
   }
 
   getProjects() {
-    this.projectService.getProjects().subscribe(
+    this.projectService.getProjectsExpanded().subscribe(
       resp => {
         this.projects = resp;
         console.log(this.projects);
@@ -124,7 +126,8 @@ export class ProjectComponent implements OnInit {
       description: this.projectForm.value.description,
       created_by: this.currentUser.id,
       created_at: null,
-      main_university: this.projectForm.value.university
+      main_university: this.projectForm.value.university,
+      name_uni: null
 
     };
 
@@ -364,6 +367,7 @@ console.log(err);
 
 
   onChangeProject(e: any) {
+    this.inputProjectSearch = "";
     console.log(e);
     this.projectSelected = e;
     console.log(this.projectSelected);
@@ -458,7 +462,8 @@ console.log(err);
       description: null,
       created_by: null,
       created_at: null,
-      main_university: null
+      main_university: null,
+      name_uni: null
 
     };
 
@@ -557,6 +562,38 @@ console.log(err);
     this.loadFilesComponent.files = [];
 
   }
+
+  typingSearchProject(search){
+console.log(search);
+this.inputProjectSearch = search.term;
+  }
+  
+  closeProject(){
+    if(this.inputProjectSearch != ""){
+
+      let project: Project = {
+        id: this.idNewProject,
+        name: this.inputProjectSearch,
+        description: null,
+        created_by: null,
+        created_at: null,
+        main_university: null, 
+        name_uni: this.inputProjectSearch
+  
+      };
+  
+      this.projects = [...this.projects, project];
+
+      this.projectForm.get('project').setValue(this.idNewProject);
+      this.idNewProject = this.idNewProject -1;
+
+      this.inputProjectSearch = "";
+      
+    }
+
+    
+
+      }
 
   
 

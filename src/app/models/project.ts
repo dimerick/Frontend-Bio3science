@@ -1,6 +1,7 @@
 import { University } from './university';
 import { User } from './user';
 import { Community } from './community';
+import { Image } from './image';
 
 
 export interface Project{
@@ -12,7 +13,9 @@ export interface Project{
     main_university: number, 
     users?:User[], 
     universities?:University[], 
-    communities?:Community[]  
+    communities?:Community[], 
+    images?:Image[], 
+    name_uni: string  
 }
 
 export interface EntitiesProject{ 

@@ -1,0 +1,59 @@
+<div *ngIf="project">
+
+
+<div class="container" >
+<div class="col-md-12">
+                            
+    <ol class="breadcrumbs">
+        <li>
+            <a [routerLink]="['/gallery']">Projects</a>
+        </li>
+        <li>{{project.name}}</li>
+    </ol>
+    <hr>
+</div>
+</div>
+
+<section class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{project.name}}</h1>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10 text-center">
+                
+                <!--end video cover-->
+                <span>A trailer made by Stack to showcase the new Nike Active brand</span>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                
+                <p class="lead">
+                    {{project.description}}
+                </p>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+
+</div>
