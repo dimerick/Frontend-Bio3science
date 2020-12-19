@@ -103,7 +103,20 @@ export class ProjectNetworkComponent implements OnInit {
 
           console.log(columns_images);
 
+
+          let slider_images = `<div class="slider" data-arrows="true">
+          <ul class="slides">`;
+          console.log(e.images.length);
+          e.images.slice(0, Math.round(e.images.length / 2)).forEach(img => {
+            slider_images += `<li><img alt="Image project ${e.name}"src="${img.url}"></li>`;
+            
+
+          });
+          slider_images += `</ul>
+          </div>`;
+
           e.columns_images = columns_images;
+          e.slider_images = slider_images;
 
           poly.addEventListener('click', (layer) => {
             console.log(e);

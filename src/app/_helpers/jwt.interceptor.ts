@@ -20,7 +20,7 @@ export class JwtInterceptor implements HttpInterceptor{
         // if(token == null){
         //     location.reload(true);
         // }
-        console.log(request.url);
+        
         if(token){
             // clone the incoming request and add JWT token in the cloned request's Authorization Header
             request = request.clone({
@@ -28,6 +28,8 @@ export class JwtInterceptor implements HttpInterceptor{
                     Authorization: `Bearer ${token}`, 
                 }
             });
+
+            console.log(request);
         }
 
         // handle any other requests which went unhandled

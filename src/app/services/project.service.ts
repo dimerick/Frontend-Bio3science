@@ -9,6 +9,7 @@ import { Profile } from '../models/profile';
 import { University } from '../models/university';
 import { EntitiesProject, Project } from '../models/project';
 import { ProjectXUser } from '../models/project copy';
+import { UserService } from './user.service';
 
 
 
@@ -17,7 +18,8 @@ export class ProjectService{
     public url: string;
     constructor(
         private _http: HttpClient, 
-        private _authservice: AuthService
+        private _authservice: AuthService, 
+        private userService: UserService
     ){
         this.url = Global.url;
 
@@ -81,6 +83,30 @@ export class ProjectService{
     getProjectByName(inputSearch: string){
         return this._http.get(
             `${this.url}project?name=${inputSearch}`
+        ).pipe(
+            map( resp => {
+                return resp;
+            }
+            )
+            
+        );
+    }
+
+    getProjectByUser(idUser: number){
+        return this._http.get(
+            `${this.url}project?user=${idUser}`
+        ).pipe(
+            map( resp => {
+                return resp;
+            }
+            )
+            
+        );
+    }
+
+    deleteProject(idProject: number){
+        return this._http.delete(
+            `${this.url}project/${idProject}`
         ).pipe(
             map( resp => {
                 return resp;

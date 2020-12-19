@@ -24,7 +24,7 @@ All other errors are RE-THROWN to be caught by the calling service so an alert c
                     // auto logout on unauthorized response
                     console.log("Se produjó un error 401");
                     this.authService.logout();
-                    location.reload(true);
+                    window.location.reload();
                 }
 
                 const error = err.error.message || err.statusText;

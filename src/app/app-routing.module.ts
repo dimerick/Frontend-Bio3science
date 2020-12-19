@@ -9,6 +9,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UniversityComponent } from './components/university/university.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { MyPublicationsComponent } from './components/my-publications/my-publications.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'project', component: ProjectComponent}, 
   { path: 'community', component: CommunityComponent}, 
   { path: 'project-list', component: ProjectListComponent}, 
+  { path: 'my-publications', component: MyPublicationsComponent},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

@@ -20,6 +20,8 @@ export class HeaderComponent implements OnInit {
   }
   
   toggleModalSearchActive(){
+    var searchBox = document.getElementById("search-box");
+    searchBox.classList.remove("notification--dismissed");
     this.modalSearchActive = !this.modalSearchActive;
     console.log(this.modalSearchActive);
   }
