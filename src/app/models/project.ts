@@ -15,7 +15,16 @@ export interface Project{
     universities?:University[], 
     communities?:Community[], 
     images?:Image[], 
-    name_uni: string  
+    name_uni: string, 
+    universities_network?:any[], 
+    communities_network?:any[],
+    lat?: number, 
+    long?: number,
+    nodes_universities?:any[], 
+    nodes_communities?:any[],
+    universidad?: string,
+    user_name?: string, 
+    user_last_name?:string
 }
 
 export interface EntitiesProject{ 

@@ -6,6 +6,12 @@
 
     <div class="boxed boxed--border">
         <h4>Recent Activity</h4>
+        <div *ngIf="projects">
+            <div *ngIf="projects.length == 0">
+                Aun no tiene publicaciones!!
+            </div>
+            
+        </div>
         <ul>
             <li class="clearfix" *ngFor="let project of projects">
                 <div class="row">
@@ -18,7 +24,8 @@
                         <p>
                             {{project.description}}
                         </p>
-                        <span><a href="">Editar</a></span> | <span><a href="javascript: void(0)" (click)="deleteProject(project)">Eliminar</a> </span>
+                        <!-- <span><a href="">Editar</a></span>  -->
+                        <span><a href="javascript: void(0)" (click)="deleteProject(project)">Eliminar</a> </span>
                     </div>
                 </div>
                 <hr>

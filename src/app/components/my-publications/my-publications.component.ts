@@ -69,7 +69,8 @@ export class MyPublicationsComponent implements OnInit {
         });
         Swal.showLoading();
         this.projectService.deleteProject(project.id).subscribe(resp => {
-          console.log(resp);
+          this.getProjects();
+          
           Swal.fire({
             icon: 'success',
             title: 'Project Deleted'

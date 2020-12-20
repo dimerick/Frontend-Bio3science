@@ -49,7 +49,7 @@ export class MapComponent implements OnInit, OnDestroy {
             false: 'View Fullscreen',
             }
   };
-  public hideInfoLayer:boolean;
+  public hideInfoLayer = true;
   public infoLayer = null;
   public Custom = Control.extend({
 
@@ -63,11 +63,11 @@ export class MapComponent implements OnInit, OnDestroy {
       //   inputSearch.focus();            
       // });
       
-      DomEvent.addListener(container, 'click', DomEvent.stopPropagation)
-      .addListener(container, 'click', DomEvent.preventDefault)
-      .addListener(container, 'dblclick onmouseup', ()=>{
-        console.log(this);
-      });
+      // DomEvent.addListener(container, 'click', DomEvent.stopPropagation)
+      // .addListener(container, 'click', DomEvent.preventDefault)
+      // .addListener(container, 'dblclick onmouseup', ()=>{
+      //   console.log(this);
+      // });
 
       DomEvent.disableClickPropagation(container);
 

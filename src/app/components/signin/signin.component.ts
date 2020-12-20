@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -20,7 +21,8 @@ export class SigninComponent implements OnInit {
   // @Output() eventSignInModalClose = new EventEmitter<boolean>();
 
   constructor(
-    private _authService: AuthService
+    private _authService: AuthService, 
+    private router: Router
   ) {
     // this.modalActive = false;
    }
@@ -47,7 +49,7 @@ export class SigninComponent implements OnInit {
         Swal.close();
         console.log(resp);
         this.signInForm.reset();
-        location.reload(true);
+        this.router.navigate(['project']);
       }, 
       (err) => {
         console.log(err);

@@ -15,9 +15,9 @@ import { ProjectDetailComponent } from './components/project-detail/project-deta
 
 
 const routes: Routes = [
-  { path: '', component: MapComponent}, 
+  { path: '', component: GalleryComponent}, 
   { path: 'login', component: SigninComponent}, 
-  { path: 'registro', component: SignupComponent}, 
+  { path: 'signup', component: SignupComponent}, 
   { path: 'project-network', component: ProjectNetworkComponent}, 
   { path: 'map', component: MapComponent}, 
   { path: 'recovery-password', component: RecoveryPasswordComponent}, 

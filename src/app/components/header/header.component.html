@@ -138,7 +138,7 @@
                                     </a>
                                 </li>
                                 
-                                <li class="dropdown dropdown--absolute">
+                                <!-- <li class="dropdown dropdown--absolute">
                                     <span class="dropdown__trigger">
                                         <img alt="Image" class="flag" src="assets/img/flag-1.png" />
                                     </span>
@@ -164,7 +164,7 @@
                                     <a href="#" data-notification-link="side-menu">
                                         <i class="stack-dot-3"></i>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -319,7 +319,7 @@
             <!--end bar-->
             <nav id="menu1" class="bar bar--sm bar-1" [ngClass]="{'hidden-xs':menuXsActive}">
                 <div class="container">
-                    <div class="row">
+                    <div class="row" id="row-menu">
                         <div class="col-lg-2 col-md-2 hidden-xs">
                             <div class="bar__module">
                                 <a href="index.html">
@@ -333,11 +333,11 @@
                             <div class="bar__module">
                                 <ul class="menu-horizontal text-left">
                                     
-                                    <li>
-                                        <a href="#">
+                                    <!-- <li>
+                                        <a [routerLink]="['/gallery']">
                                             Home
                                         </a>
-                                    </li>
+                                    </li> -->
 
                                     <li>
                                         <a [routerLink]="['/gallery']">
@@ -345,27 +345,15 @@
                                         </a>
                                     </li>
 
-                                    <li>
+                                    <!-- <li>
                                         <a href="#">
                                             About Us
                                         </a>
-                                    </li>
+                                    </li> -->
 
                                     <li>
                                         <a [routerLink]="['/project-network']">
-                                            Project Network
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a [routerLink]="['/project-list']">
-                                            Project List
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a [routerLink]="['/project-network']">
-                                            Project Network
+                                            Network
                                         </a>
                                     </li>
                                     
