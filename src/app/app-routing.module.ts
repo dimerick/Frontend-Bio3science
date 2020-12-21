@@ -12,6 +12,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { MyPublicationsComponent } from './components/my-publications/my-publications.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { CurrentUserComponent } from './components/current-user/current-user.component';
 
 
 const routes: Routes = [

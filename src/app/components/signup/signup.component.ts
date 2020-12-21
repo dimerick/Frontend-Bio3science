@@ -334,6 +334,7 @@ export class SignupComponent implements OnInit {
 
   toggleAddUniversity() {
     console.log("Añadir University");
+    document.body.classList.toggle("modal-open");
     console.log(this.modalAddUniversityActive);
     this.modalAddUniversityActive = !this.modalAddUniversityActive;
     

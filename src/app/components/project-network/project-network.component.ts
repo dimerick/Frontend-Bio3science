@@ -1,8 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { circle, Icon, LatLng, Layer, marker, Marker, point, Point, Polyline, polyline, DivIcon, DomEvent, latLng } from 'leaflet';
+import { circle, Icon, LatLng, Layer, marker, Marker, point, Point, Polyline, polyline, DivIcon, DomEvent, latLng, svgOverlay, SVGOverlay, LatLngBounds, icon, divIcon, Map } from 'leaflet';
 import { LayerMap } from 'src/app/models/LayerMap';
 import { ProjectService } from 'src/app/services/project.service';
 import { MapComponent } from '../map/map.component';
+
+
+
+
+
 
 @Component({
   selector: 'app-project-network',
@@ -26,7 +31,7 @@ export class ProjectNetworkComponent implements OnInit {
     this.lon = 200;
     this.getLocation();
     // this.getProjects();
-    this.getProjectNetwork();
+    
 
   }
 
@@ -35,6 +40,8 @@ export class ProjectNetworkComponent implements OnInit {
     //   [
     //     circle([6.15, -75.64], { radius: 10000 })
     //   ]
+
+    
   }
 
   getLocation() {
@@ -53,10 +60,15 @@ export class ProjectNetworkComponent implements OnInit {
 
     }
 
+    
   }
 
   markerMoved(e: LatLng) {
     console.log(e);
+  }
+
+  mapReady(e: boolean){
+    this.getProjectNetwork();
   }
 
   getProjects() {
@@ -85,7 +97,46 @@ export class ProjectNetworkComponent implements OnInit {
             opacity: 0.5
           });//.bindPopup(e.name);
 
-          this.layers.push(poly);
+          // this.layers.push(poly);
+          
+          let icon = divIcon()
+          
+          let point1 = this.mapComponent.map.latLngToLayerPoint([n.lat, n.long]);
+          let point2 = this.mapComponent.map.latLngToLayerPoint([n.lat_assoc, n.long_assoc]);
+          
+          console.log(point1, point2);
+          let minx = point1.x;
+          let maxx = point2.x;
+          if(point2.x < minx){
+            minx = point2.x;
+            maxx = point1.x;
+          }
+          let miny = point1.y;
+          let maxy = point2.y;
+          console.log('minx', minx);
+          console.log('miny', miny);
+          console.log('maxx', maxx);
+          console.log('maxy', maxy);
+          if(point2.y < miny){
+            miny = point2.y;
+            maxy = point1.y;
+          }
+          let width = Math.abs(point2.x-(point1.x));
+          let height = Math.abs(point2.y-(point1.y));
+          let xmed = minx + (width/2);
+          let ymed = maxy;
+          console.log(width, height);
+          let svgrect = `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}' viewBox="${minx} ${miny} ${width} ${height}"><path d='M${point1.x},${point1.y} Q${xmed},${ymed} ${point2.x},${point2.y}' fill='none' stroke="red" stroke-width="5"/></svg>`;
+       
+    let rectIcon = divIcon({
+        iconSize:     [0, 0],
+        iconAnchor:   [0, 0],
+        popupAnchor:  [-3, -76],
+        html: svgrect
+      }
+    );
+    let mark = marker([n.lat, n.long]).setIcon(rectIcon).bindPopup("I am data URI SVG icon.");
+    this.layers.push(mark);
 
           let columns_images = `<div class="column">`;
           console.log(e.images.length);
@@ -282,5 +333,7 @@ export class ProjectNetworkComponent implements OnInit {
         console.log(err);
       });
   }
+
+  
 
 }

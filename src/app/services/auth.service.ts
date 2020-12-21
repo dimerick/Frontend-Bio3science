@@ -60,7 +60,7 @@ export class AuthService{
     logout(){
         localStorage.removeItem('refreshToken');
         localStorage.removeItem('token');
-        location.reload(true);
+        window.location.href = '/gallery';
 
     }
 

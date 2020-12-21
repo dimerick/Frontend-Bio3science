@@ -20,6 +20,9 @@ export class SigninComponent implements OnInit {
   // @Input() modalActive: boolean;
   // @Output() eventSignInModalClose = new EventEmitter<boolean>();
 
+
+  
+
   constructor(
     private _authService: AuthService, 
     private router: Router
@@ -49,7 +52,9 @@ export class SigninComponent implements OnInit {
         Swal.close();
         console.log(resp);
         this.signInForm.reset();
-        this.router.navigate(['project']);
+        
+        window.location.href = '/project';
+        
       }, 
       (err) => {
         console.log(err);

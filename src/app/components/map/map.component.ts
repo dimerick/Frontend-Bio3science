@@ -41,6 +41,7 @@ export class MapComponent implements OnInit, OnDestroy {
   public mark: Marker;
   @Input() featureCollection: Layer[];
   @Output() markerMovedEvent: EventEmitter<LatLng> = new EventEmitter;
+  @Output() mapReadyEvent: EventEmitter<boolean> = new EventEmitter;
   @Input() markerDraggable: boolean;
   public fullscreenOptions: FullscreenOptions = {
     position: 'topleft',
@@ -173,7 +174,7 @@ export class MapComponent implements OnInit, OnDestroy {
     });
     this.map.addControl(this.infoLayer);
     
-    
+    this.mapReadyEvent.emit(true);
   }
 
   onMapZoomEnd(e: ZoomAnimEvent) {

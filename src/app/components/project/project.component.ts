@@ -18,6 +18,8 @@ import { LoadFilesComponent } from '../load-files/load-files.component';
 import { FileService } from 'src/app/services/file.service';
 import { Observable } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -422,11 +424,13 @@ console.log(err);
 
   toggleAddUniversity() {
     console.log("Añadir University");
+    document.body.classList.toggle("modal-open");
     this.modalAddUniversityActive = !this.modalAddUniversityActive;
   }
 
   toggleAddCommunity() {
     console.log("Añadir Comunnity");
+    document.body.classList.toggle("modal-open");
     this.modalAddCommunityActive = !this.modalAddCommunityActive;
   }
 
@@ -585,6 +589,8 @@ this.inputProjectSearch = search.term;
       this.projects = [...this.projects, project];
 
       this.projectForm.get('project').setValue(this.idNewProject);
+      this.projectSelected = project;
+
       this.idNewProject = this.idNewProject -1;
 
       this.inputProjectSearch = "";

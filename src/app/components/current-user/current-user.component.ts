@@ -94,6 +94,7 @@ export class CurrentUserComponent implements OnInit {
 
   logout() {
     this._authservice.logout();
+
   }
 
 }
